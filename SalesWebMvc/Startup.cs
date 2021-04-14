@@ -15,7 +15,7 @@ using Microsoft.EntityFrameworkCore;
 using SalesWebMvc.Models;
 using SalesWebMvc.Data;
 using SalesWebMvc.Services;
-
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 namespace SalesWebMvc {
     public class Startup {
@@ -48,6 +48,8 @@ namespace SalesWebMvc {
             services.AddScoped<DepartmentService>();
 
             services.AddScoped<SalesRecordService>();
+
+            services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

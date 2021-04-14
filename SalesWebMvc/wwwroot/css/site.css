@@ -1,37 +1,91 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
-for details on configuring this project to bundle and minify static web assets. */
-body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿body {
+    background-color: #F8F8FF;
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
-}
-
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
+footer {
+    border-top: 1px solid #333;
+    bottom: 0;
+    left: 0;
+    height: 40px;
     width: 100%;
 }
 
-/* QR code generator */
-#qrCode {
-    margin: 15px;
+div.body-content {
+    margin-bottom:700px;
 }
 
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-    /* Hide captions */
-    .carousel-caption {
-        display: none;
-    }
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+    display: flex;
 }
+
+.carousel-inner .carousel-item-right.active,
+.carousel-inner .carousel-item-next {
+    transform: translateX(25%);
+}
+
+.carousel-inner .carousel-item-left.active,
+.carousel-inner .carousel-item-prev {
+    transform: translateX(-25%);
+}
+
+.carousel-inner .carousel-item-right,
+.carousel-inner .carousel-item-left {
+    transform: translateX(0);
+}
+
+span.carousel-control-prev-icon{
+    background-color: purple;
+    left: -15px;
+    position: absolute;
+}
+
+span.carousel-control-next-icon {
+    background-color: purple;
+    position: absolute;
+    right: 35px;
+}
+
+.content-product {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.productData {
+    flex-basis: 20%;
+    background-color: white;
+}
+
+.img-Carousel{
+    display: block;
+    width: 100%;
+    padding: 0 15px;
+}
+
+.priceProduct{
+    font-size: 18px;
+}
+
+.product-Description {
+    text-align: justify;
+    margin-left: 40%;
+}
+
+.description-Name {
+    font-size: 18px;
+    text-align: center;
+}
+
+.buy-Up {
+    text-align: center;
+    font-size: 14px;
+}
+
+#recipeCarousel{
+    position:relative;
+}
+

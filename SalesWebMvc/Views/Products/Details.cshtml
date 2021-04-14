@@ -1,0 +1,44 @@
+﻿@model SalesWebMvc.Models.Product
+@using System.Globalization;
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+@{
+    List<double> iList = Model.listInstalments();
+    int i = 1;
+}
+
+<h2 class="mt-2 text-center">@Html.DisplayFor(model => model.Name)</h2>
+<hr />
+
+<div class="container-fluid">
+    <div class="d-block float-left">
+        <img src="https://placedog.net/400/400" />
+    </div>
+    <div>
+        <h1 class="text-center text-success">
+            U$ @Html.DisplayFor(model => model.Price)
+            <button class="btn btn-primary float-right">Buy Now</button>
+        </h1>
+        <p class="buy-Up">
+        Buy up
+        <select>
+            @foreach (var item in iList) {
+                <option value="@i">@i x @item.ToString("F2", CultureInfo.InvariantCulture)</option>
+                i++;
+            }
+        </select>
+        </p>
+        <p class="description-Name">
+            <strong>@Html.DisplayNameFor(model => model.Description)</strong>
+        </p>
+        <div>
+            <p class="product-Description">
+                @Html.DisplayFor(model => model.Description)
+            </p>
+
+        </div>
+    </div>
+</div>
