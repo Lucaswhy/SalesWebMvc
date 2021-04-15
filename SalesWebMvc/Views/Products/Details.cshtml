@@ -6,7 +6,7 @@
 }
 
 @{
-    List<double> iList = Model.listInstalments();
+    List<double> iList = Model.ListInstalments();
     int i = 1;
 }
 
@@ -20,16 +20,18 @@
     <div>
         <h1 class="text-center text-success">
             U$ @Html.DisplayFor(model => model.Price)
-            <button class="btn btn-primary float-right">Buy Now</button>
+            <form asp-action="Buy">
+                <button type="submit" class="btn btn-primary float-right">Buy Now</button>
+            </form>
         </h1>
         <p class="buy-Up">
-        Buy up
-        <select>
-            @foreach (var item in iList) {
-                <option value="@i">@i x @item.ToString("F2", CultureInfo.InvariantCulture)</option>
-                i++;
-            }
-        </select>
+            Buy up
+            <select>
+                @foreach (var item in iList) {
+                    <option value="@i">@i x @item.ToString("F2", CultureInfo.InvariantCulture)</option>
+                    i++;
+                }
+            </select>
         </p>
         <p class="description-Name">
             <strong>@Html.DisplayNameFor(model => model.Description)</strong>

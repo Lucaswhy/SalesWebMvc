@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace SalesWebMvc.Models {
         public String Description { get; set; }
         public int Instalments { get; set; }
         public int Stock { get; set; }
+        public byte[] Content { get; set; }
         public bool Active { get; set; }
 
         public Product() {
@@ -33,7 +35,7 @@ namespace SalesWebMvc.Models {
             Active = true;
         }
 
-        public List<double> listInstalments() {
+        public List<double> ListInstalments() {
 
             List<double> instalList = new List<double>();
             double iValue = 0;
