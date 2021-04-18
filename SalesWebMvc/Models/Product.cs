@@ -10,29 +10,29 @@ namespace SalesWebMvc.Models {
         [Required(ErrorMessage = "{0} Required.")]
         public int Id { get; set; }
         [Required(ErrorMessage = "{0} Required.")]
-        public String SKU { get; set; }
-        public String Name { get; set; }
+        public string SKU { get; set; }
+        public string Name { get; set; }
         [DisplayFormat(DataFormatString = "{0:F2}")]
         public double Price { get; set; }
-        public String Description { get; set; }
+        public string Description { get; set; }
         public int Instalments { get; set; }
         public int Stock { get; set; }
-        public byte[] Content { get; set; }
+        public string Image { get; set; }
         public bool Active { get; set; }
 
         public Product() {
 
         }
 
-        public Product(int id, String sku, string name, double price, string description, int instalments) {
+        public Product(int id, string sKU, string name, double price, string description, int instalments, int stock, bool active) {
             Id = id;
-            SKU = sku;
+            SKU = sKU;
             Name = name;
             Price = price;
             Description = description;
             Instalments = instalments;
-            Stock = 0;
-            Active = true;
+            Stock = stock;
+            Active = active;
         }
 
         public List<double> ListInstalments() {

@@ -60,10 +60,15 @@ span.carousel-control-next-icon {
     background-color: white;
 }
 
-.img-Carousel{
+.link-Carousel{
     display: block;
     width: 100%;
     padding: 0 15px;
+}
+
+.img-Carousel{
+    height: 190px;
+    width: 150px;
 }
 
 .priceProduct{
@@ -85,6 +90,14 @@ span.carousel-control-next-icon {
     font-size: 14px;
 }
 
+.img-Details{
+    height: 400px;
+    width: 400px;
+}
+
+.img-List{
+    height: 213px;
+}
 #recipeCarousel{
     position:relative;
 }

@@ -56,9 +56,9 @@ namespace SalesWebMvc.Migrations
 
                     b.Property<bool>("Active");
 
-                    b.Property<byte[]>("Content");
-
                     b.Property<string>("Description");
+
+                    b.Property<string>("Image");
 
                     b.Property<int>("Instalments");
 

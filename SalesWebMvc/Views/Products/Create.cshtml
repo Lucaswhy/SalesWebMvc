@@ -1,7 +1,10 @@
-﻿@model SalesWebMvc.Helpers.FileUpload
+﻿@model SalesWebMvc.Helpers.ImageProduct
 
 @{
     ViewData["Title"] = "Create";
+
+    //Microsoft.AspNetCore.Http.IFormFile Content = null;
+    
 }
 
 <h2>Create</h2>
@@ -10,7 +13,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="SKU" class="control-label"></label>
@@ -49,13 +52,12 @@
             <div class="form-group">
                     <dl>
                         <dt>
-                            <label asp-for="imageUpload.FormFile"></label>
+                            <label asp-for="Content"></label>
                         </dt>
                         <dd>
-                            <input asp-for="imageUpload.FormFile" type="file">
+                            <input asp-for="Content" type="file">
                         </dd>
-                    </dl>
-                    <input asp-page-handler="Upload" class="btn" type="submit" value="Upload" />             
+                    </dl>           
             </div>
             <div class="form-group">
                 <div class="checkbox">

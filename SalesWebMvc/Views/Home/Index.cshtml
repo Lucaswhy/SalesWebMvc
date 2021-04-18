@@ -14,32 +14,37 @@
         @Html.TextBox("SearchString")
         <input class="btn btn-primary" type="submit" value="Search" />
         <input id="iFilter" type="hidden" value="@ViewBag.CurrentFilter">
-            Sort by:
-            <select id="slSort" onchange="sortList()">
-                <option>A - Z</option>
-                <option> Z - A</option>
-                <option>Price - low to high</option>
-                <option>Price - high to low</option>
-            </select>
+        Sort by:
+        <select id="slSort" onchange="sortList()">
+            <option>A - Z</option>
+            <option> Z - A</option>
+            <option>Price - low to high</option>
+            <option>Price - high to low</option>
+        </select>
     </p>
 }
 
 <div class="container-fluid border">
     <div class="content-product">
         @foreach (var item in pgList) {
-            <div class="card productData">
-                <a href="./Products/Details/@item.Id"><img class="card-img-top" src="https://placedog.net/150/150"></a>
-                <p>
-                    @if (item.Name.Length >= 55) {
-                        <strong><a class="text-info" href="./Products/Details/@item.Id" title="@item.Name">@item.Name.Substring(0, 55)...</a></strong>
+                <div class="card productData">
+                    @if (item.Image != null) {
+                        <a href="./Products/Details/@item.Id"><img class="img-List card-img-top" src="@item.Image"></a>
                     }
                     else {
-                        <strong><a class="text-info" href="./Products/Details/@item.Id">@item.Name</a></strong>
+                        <a href="./Products/Details/@item.Id"><img class="card-img-top" src="/images/noImage150.png"></a>
                     }
-                <p class="productPrice">
-                    U$@item.Price.ToString("F2", CultureInfo.InvariantCulture)
-                </p>
-            </div>
+                    <p>
+                        @if (item.Name.Length >= 55) {
+                            <strong><a class="text-info" href="./Products/Details/@item.Id" title="@item.Name">@item.Name.Substring(0, 55)...</a></strong>
+                        }
+                        else {
+                            <strong><a class="text-info" href="./Products/Details/@item.Id">@item.Name</a></strong>
+                        }
+                    <p class="productPrice">
+                        U$@item.Price.ToString("F2", CultureInfo.InvariantCulture)
+                    </p>
+                </div>
         }
     </div>
 </div>
@@ -73,20 +78,32 @@
                 @{
                     int i = 0;
                     foreach (var item in pList) {
-                        @if (i == 0) {
-                            i = 1;
-                            <div class="carousel-item active">
-                                <a class="img-Carousel" href="./Products/Details/@item.Id">
-                                    <img class="d-block img-fluid" src="https://placedog.net/190/150">
-                                </a>
-                            </div>
-                        }
-                        else {
-                            <div class="carousel-item">
-                                <a class="img-Carousel" href="./Products/Details/@item.Id">
-                                    <img class="d-block img-fluid" src="https://placedog.net/190/150">
-                                </a>
-                            </div>
+                        if (item.Active == true) {
+                            @if (i == 0) {
+                                i = 1;
+                                <div class="carousel-item active">
+                                    <a class="link-Carousel" href="./Products/Details/@item.Id">
+                                        @if (item.Image != null) {
+                                            <img class="d-block img-fluid" src="@item.Image">
+                                        }
+                                        else {
+                                            <img class="d-block img-fluid" src="/images/noImage190.png">
+                                        }
+                                    </a>
+                                </div>
+                            }
+                            else {
+                                <div class="carousel-item">
+                                    <a class="link-Carousel" href="./Products/Details/@item.Id">
+                                        @if (item.Image != null) {
+                                            <img class="d-block img-fluid" src="@item.Image">
+                                        }
+                                        else {
+                                            <img class="d-block img-fluid" src="/images/noImage190.png">
+                                        }
+                                    </a>
+                                </div>
+                            }
                         }
                     }
                 }

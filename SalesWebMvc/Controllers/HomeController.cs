@@ -66,7 +66,7 @@ namespace SalesWebMvc.Controllers {
                 productIQ = _context.Product.Where(pr => pr.Name.ToUpper().Contains(searchString) || pr.SKU.ToUpper().Contains(searchString));
             }
 
-            var pageSize = Configuration.GetValue("PageSize", 15);
+            int pageSize = Configuration.GetValue("PageSize", 15);
             Products = await PaginatedList<Product>.CreateAsync(productIQ.AsNoTracking(), pageIndex ?? 1, pageSize);
             ViewBag.Pagination = Products;
 

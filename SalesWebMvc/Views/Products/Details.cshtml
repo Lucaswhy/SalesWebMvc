@@ -15,7 +15,12 @@
 
 <div class="container-fluid">
     <div class="d-block float-left">
-        <img src="https://placedog.net/400/400" />
+        @if (Model.Image != null) {
+        <img class="img-Details"  src="@Model.Image" />
+        }
+        else {
+        <img class="img-Details" src="/images/noImage400.png" />
+        }
     </div>
     <div>
         <h1 class="text-center text-success">
